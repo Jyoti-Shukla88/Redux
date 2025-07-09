@@ -1,0 +1,162 @@
+[
+	{
+		"id": "c1",
+		"title": "React Native Bootcamp",
+		"instructor": {
+			"name": "John Doe",
+			"experience": 5
+		},
+		"duration": "6 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"JSX",
+			"State",
+			"Navigation"
+		],
+		"enrolled": 120
+	},
+	{
+		"id": "c2",
+		"title": "Full Stack Web Development",
+		"instructor": {
+			"name": "Jane Smith",
+			"experience": 8
+		},
+		"duration": "12 weeks",
+		"level": "Advanced",
+		"topics": [
+			"React",
+			"Node",
+			"MongoDB"
+		],
+		"enrolled": 250
+	},
+	{
+		"id": "c3",
+		"title": "UI/UX Design Basics",
+		"instructor": {
+			"name": "Ali Khan",
+			"experience": 3
+		},
+		"duration": "4 weeks",
+		"level": "Beginner",
+		"topics": [
+			"Figma",
+			"Design Thinking",
+			"Wireframes"
+		],
+		"enrolled": 85
+	},
+	{
+		"id": "c4",
+		"title": "Machine Learning Essentials",
+		"instructor": {
+			"name": "Sara Lee",
+			"experience": 7
+		},
+		"duration": "10 weeks",
+		"level": "Advanced",
+		"topics": [
+			"Python",
+			"Scikit-Learn",
+			"Pandas"
+		],
+		"enrolled": 180
+	},
+	{
+		"id": "c5",
+		"title": "Frontend Fundamentals",
+		"instructor": {
+			"name": "Kevin Brooks",
+			"experience": 4
+		},
+		"duration": "5 weeks",
+		"level": "Beginner",
+		"topics": [
+			"HTML",
+			"CSS",
+			"JavaScript"
+		],
+		"enrolled": 95
+	},
+	{
+		"id": "c6",
+		"title": "Backend API Development",
+		"instructor": {
+			"name": "Nina Verma",
+			"experience": 6
+		},
+		"duration": "8 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"Express.js",
+			"REST",
+			"Authentication"
+		],
+		"enrolled": 130
+	},
+	{
+		"id": "c7",
+		"title": "Mobile App Design",
+		"instructor": {
+			"name": "Zainab Ali",
+			"experience": 2
+		},
+		"duration": "3 weeks",
+		"level": "Beginner",
+		"topics": [
+			"Prototyping",
+			"Material Design",
+			"Wireframes"
+		],
+		"enrolled": 60
+	},
+	{
+		"id": "c8",
+		"title": "Data Structures & Algorithms",
+		"instructor": {
+			"name": "Harish R",
+			"experience": 9
+		},
+		"duration": "10 weeks",
+		"level": "Advanced",
+		"topics": [
+			"Arrays",
+			"Trees",
+			"Graphs"
+		],
+		"enrolled": 300
+	},
+	{
+		"id": "c9",
+		"title": "Intro to Cloud Computing",
+		"instructor": {
+			"name": "Meera Singh",
+			"experience": 5
+		},
+		"duration": "6 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"AWS",
+			"GCP",
+			"Docker"
+		],
+		"enrolled": 160
+	},
+	{
+		"id": "c10",
+		"title": "DevOps Practices",
+		"instructor": {
+			"name": "Raj Patel",
+			"experience": 6
+		},
+		"duration": "7 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"CI/CD",
+			"Kubernetes",
+			"Monitoring"
+		],
+		"enrolled": 210
+	}
+]

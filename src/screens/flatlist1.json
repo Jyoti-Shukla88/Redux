@@ -1,0 +1,562 @@
+[
+	{
+		"id": "c1",
+		"title": "React Native Bootcamp",
+		"instructor": {
+			"name": "John Doe",
+			"experience": 5
+		},
+		"duration": "6 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"JSX",
+			"State",
+			"Navigation"
+		],
+		"enrolled": 120
+	},
+	{
+		"id": "c2",
+		"title": "Full Stack Web Development",
+		"instructor": {
+			"name": "Jane Smith",
+			"experience": 8
+		},
+		"duration": "12 weeks",
+		"level": "Advanced",
+		"topics": [
+			"React",
+			"Node",
+			"MongoDB"
+		],
+		"enrolled": 250
+	},
+	{
+		"id": "c3",
+		"title": "UI/UX Design Basics",
+		"instructor": {
+			"name": "Ali Khan",
+			"experience": 3
+		},
+		"duration": "4 weeks",
+		"level": "Beginner",
+		"topics": [
+			"Figma",
+			"Design Thinking",
+			"Wireframes"
+		],
+		"enrolled": 85
+	},
+	{
+		"id": "c4",
+		"title": "Machine Learning Essentials",
+		"instructor": {
+			"name": "Sara Lee",
+			"experience": 7
+		},
+		"duration": "10 weeks",
+		"level": "Advanced",
+		"topics": [
+			"Python",
+			"Scikit-Learn",
+			"Pandas"
+		],
+		"enrolled": 180
+	},
+	{
+		"id": "c5",
+		"title": "Frontend Fundamentals",
+		"instructor": {
+			"name": "Kevin Brooks",
+			"experience": 4
+		},
+		"duration": "5 weeks",
+		"level": "Beginner",
+		"topics": [
+			"HTML",
+			"CSS",
+			"JavaScript"
+		],
+		"enrolled": 95
+	},
+	{
+		"id": "c6",
+		"title": "Backend API Development",
+		"instructor": {
+			"name": "Nina Verma",
+			"experience": 6
+		},
+		"duration": "8 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"Express.js",
+			"REST",
+			"Authentication"
+		],
+		"enrolled": 130
+	},
+	{
+		"id": "c7",
+		"title": "Mobile App Design",
+		"instructor": {
+			"name": "Zainab Ali",
+			"experience": 2
+		},
+		"duration": "3 weeks",
+		"level": "Beginner",
+		"topics": [
+			"Prototyping",
+			"Material Design",
+			"Wireframes"
+		],
+		"enrolled": 60
+	},
+	{
+		"id": "c8",
+		"title": "Data Structures & Algorithms",
+		"instructor": {
+			"name": "Harish R",
+			"experience": 9
+		},
+		"duration": "10 weeks",
+		"level": "Advanced",
+		"topics": [
+			"Arrays",
+			"Trees",
+			"Graphs"
+		],
+		"enrolled": 300
+	},
+	{
+		"id": "c9",
+		"title": "Intro to Cloud Computing",
+		"instructor": {
+			"name": "Meera Singh",
+			"experience": 5
+		},
+		"duration": "6 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"AWS",
+			"GCP",
+			"Docker"
+		],
+		"enrolled": 160
+	},
+	{
+		"id": "c10",
+		"title": "DevOps Practices",
+		"instructor": {
+			"name": "Raj Patel",
+			"experience": 6
+		},
+		"duration": "7 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"CI/CD",
+			"Kubernetes",
+			"Monitoring"
+		],
+		"enrolled": 210
+	},
+	{
+		"id": "c11",
+		"title": "Java Fundamentals",
+		"instructor": {
+			"name": "Amit Rao",
+			"experience": 7
+		},
+		"duration": "8 weeks",
+		"level": "Beginner",
+		"topics": [
+			"OOP",
+			"JVM",
+			"Collections"
+		],
+		"enrolled": 140
+	},
+	{
+		"id": "c12",
+		"title": "Python for Data Science",
+		"instructor": {
+			"name": "Lina Mathews",
+			"experience": 6
+		},
+		"duration": "9 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"NumPy",
+			"Pandas",
+			"Matplotlib"
+		],
+		"enrolled": 220
+	},
+	{
+		"id": "c13",
+		"title": "Cybersecurity Basics",
+		"instructor": {
+			"name": "Kunal Sharma",
+			"experience": 4
+		},
+		"duration": "6 weeks",
+		"level": "Beginner",
+		"topics": [
+			"Network Security",
+			"Firewalls",
+			"Threat Models"
+		],
+		"enrolled": 80
+	},
+	{
+		"id": "c14",
+		"title": "Advanced Kubernetes",
+		"instructor": {
+			"name": "Jaya Bhatt",
+			"experience": 10
+		},
+		"duration": "5 weeks",
+		"level": "Advanced",
+		"topics": [
+			"K8s Operator",
+			"Helm",
+			"Autoscaling"
+		],
+		"enrolled": 190
+	},
+	{
+		"id": "c15",
+		"title": "Next.js Crash Course",
+		"instructor": {
+			"name": "Ravi Teja",
+			"experience": 5
+		},
+		"duration": "3 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"Routing",
+			"SSR",
+			"API Routes"
+		],
+		"enrolled": 95
+	},
+	{
+		"id": "c16",
+		"title": "Intro to Blockchain",
+		"instructor": {
+			"name": "Sneha Kapoor",
+			"experience": 6
+		},
+		"duration": "6 weeks",
+		"level": "Beginner",
+		"topics": [
+			"Hashing",
+			"Smart Contracts",
+			"Ethereum"
+		],
+		"enrolled": 100
+	},
+	{
+		"id": "c17",
+		"title": "GraphQL Deep Dive",
+		"instructor": {
+			"name": "Ankit Yadav",
+			"experience": 5
+		},
+		"duration": "4 weeks",
+		"level": "Advanced",
+		"topics": [
+			"Queries",
+			"Resolvers",
+			"Apollo"
+		],
+		"enrolled": 150
+	},
+	{
+		"id": "c18",
+		"title": "Agile Project Management",
+		"instructor": {
+			"name": "Nisha Mehra",
+			"experience": 9
+		},
+		"duration": "6 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"Scrum",
+			"Sprints",
+			"JIRA"
+		],
+		"enrolled": 160
+	},
+	{
+		"id": "c19",
+		"title": "Intro to Git & GitHub",
+		"instructor": {
+			"name": "Ramesh Krishnan",
+			"experience": 3
+		},
+		"duration": "2 weeks",
+		"level": "Beginner",
+		"topics": [
+			"Git CLI",
+			"Commits",
+			"Branches"
+		],
+		"enrolled": 240
+	},
+	{
+		"id": "c20",
+		"title": "TypeScript for React Developers",
+		"instructor": {
+			"name": "Divya Raj",
+			"experience": 6
+		},
+		"duration": "5 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"Types",
+			"Interfaces",
+			"Generics"
+		],
+		"enrolled": 110
+	},
+	{
+		"id": "c21",
+		"title": "React for Beginners",
+		"instructor": {
+			"name": "Abdul Rahman",
+			"experience": 4
+		},
+		"duration": "4 weeks",
+		"level": "Beginner",
+		"topics": [
+			"JSX",
+			"Hooks",
+			"Props"
+		],
+		"enrolled": 100
+	},
+	{
+		"id": "c22",
+		"title": "TypeScript for React Developers",
+		"instructor": {
+			"name": "Divya Raj",
+			"experience": 6
+		},
+		"duration": "5 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"Types",
+			"Generics",
+			"Interfaces"
+		],
+		"enrolled": 110
+	},
+	{
+		"id": "c23",
+		"title": "ES6 for React",
+		"instructor": {
+			"name": "Rakesh Nair",
+			"experience": 7
+		},
+		"duration": "3 weeks",
+		"level": "Beginner",
+		"topics": [
+			"ES6",
+			"Arrow Functions",
+			"Destructuring"
+		],
+		"enrolled": 95
+	},
+	{
+		"id": "c24",
+		"title": "Advanced React Native",
+		"instructor": {
+			"name": "Sneha Kapoor",
+			"experience": 6
+		},
+		"duration": "6 weeks",
+		"level": "Advanced",
+		"topics": [
+			"Navigation",
+			"Reanimated",
+			"Deep Linking"
+		],
+		"enrolled": 190
+	},
+	{
+		"id": "c25",
+		"title": "React Native for Beginners",
+		"instructor": {
+			"name": "Vikas Menon",
+			"experience": 3
+		},
+		"duration": "4 weeks",
+		"level": "Beginner",
+		"topics": [
+			"Components",
+			"State",
+			"FlatList"
+		],
+		"enrolled": 70
+	},
+	{
+		"id": "c26",
+		"title": "Python for Beginners",
+		"instructor": {
+			"name": "Anjali Gupta",
+			"experience": 5
+		},
+		"duration": "6 weeks",
+		"level": "Beginner",
+		"topics": [
+			"Syntax",
+			"Loops",
+			"Functions"
+		],
+		"enrolled": 180
+	},
+	{
+		"id": "c27",
+		"title": "Python for Data Analysis",
+		"instructor": {
+			"name": "Ravi Kumar",
+			"experience": 8
+		},
+		"duration": "7 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"Pandas",
+			"DataFrames",
+			"Plotting"
+		],
+		"enrolled": 220
+	},
+	{
+		"id": "c28",
+		"title": "React Testing Library Crash Course",
+		"instructor": {
+			"name": "Meera Singh",
+			"experience": 5
+		},
+		"duration": "2 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"Unit Testing",
+			"Jest",
+			"RTL"
+		],
+		"enrolled": 90
+	},
+	{
+		"id": "c29",
+		"title": "Modern JavaScript with React",
+		"instructor": {
+			"name": "Kishore B",
+			"experience": 7
+		},
+		"duration": "6 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"ES6+",
+			"Hooks",
+			"APIs"
+		],
+		"enrolled": 160
+	},
+	{
+		"id": "c30",
+		"title": "Building REST APIs with Python",
+		"instructor": {
+			"name": "Neha Joshi",
+			"experience": 6
+		},
+		"duration": "5 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"Flask",
+			"Routing",
+			"CRUD"
+		],
+		"enrolled": 125
+	},
+	{
+		"id": "c31",
+		"title": "Introduction to React Native",
+		"instructor": {
+			"name": "Suresh Kumar",
+			"experience": 4
+		},
+		"duration": "5 weeks",
+		"level": "Beginner",
+		"topics": [
+			"Components",
+			"State Management",
+			"Navigation"
+		],
+		"enrolled": 150
+	},
+	{
+		"id": "c32",
+		"title": "Full Stack Web Development",
+		"instructor": {
+			"name": "Neha Joshi",
+			"experience": 6
+		},
+		"duration": "12 weeks",
+		"level": "Advanced",
+		"topics": [
+			"React",
+			"Node",
+			"MongoDB"
+		],
+		"enrolled": 180
+	},
+	{
+		"id": "c33",
+		"title": "Java Fundamentals",
+		"instructor": {
+			"name": "Amit Rao",
+			"experience": 7
+		},
+		"duration": "8 weeks",
+		"level": "Beginner",
+		"topics": [
+			"OOP",
+			"JVM",
+			"Collections"
+		],
+		"enrolled": 140
+	},
+	{
+		"id": "c34",
+		"title": "Python for Data Science",
+		"instructor": {
+			"name": "Lina Mathews",
+			"experience": 6
+		},
+		"duration": "9 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"NumPy",
+			"Pandas",
+			"Matplotlib"
+		],
+		"enrolled": 190
+	},
+	{
+		"id": "c35",
+		"title": "React Native Bootcamp",
+		"instructor": {
+			"name": "John Doe",
+			"experience": 5
+		},
+		"duration": "6 weeks",
+		"level": "Intermediate",
+		"topics": [
+			"JSX",
+			"State",
+			"Navigation"
+		],
+		"enrolled": 120
+	}
+]
