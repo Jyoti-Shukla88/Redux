@@ -10,7 +10,6 @@
     "test": "jest"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@react-native/new-app-screen": "0.80.1",
     "@react-navigation/native": "^7.1.14",
     "@react-navigation/stack": "^7.4.2",
@@ -23,11 +22,6 @@
     "react-native-screens": "^4.11.1",
     "react-redux": "^9.2.0",
     "redux": "^5.0.1"
-=======
-    "react": "19.1.0",
-    "react-native": "0.80.1",
-    "@react-native/new-app-screen": "0.80.1"
->>>>>>> a20619f (Initial commit)
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -52,8 +46,4 @@
   "engines": {
     "node": ">=18"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a20619f (Initial commit)
