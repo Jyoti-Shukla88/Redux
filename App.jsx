@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Product from './components/Product';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
-import  store,{  persistor } from './components/redux/store';
+import store, {persistor } from './components/redux/store';
 
 const products =[
   {
