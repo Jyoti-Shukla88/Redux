@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, FlatList, ActivityIndicator, RefreshControl, Alert } from 'react-native';
 import { XMLParser } from 'fast-xml-parser';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const RSS_FEED_URL = 'https://lorem-rss.herokuapp.com/feed?unit=second&interval=5&length=40';
 
@@ -24,6 +25,7 @@ export default function LiveFeedScreen() {
       const response = await fetch(RSS_FEED_URL);
       const text = await response.text();
       const items = parseRSS(text);
+       await AsyncStorage.setItem('liveFeed', JSON.stringify(items));
       setData(items);
     } catch (error) {
       setData([]);
