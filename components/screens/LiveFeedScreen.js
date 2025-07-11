@@ -1,45 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, ActivityIndicator, RefreshControl } from 'react-native';
+import React, { useEffect, useState, useCallback } from 'react';
+import { View, Text, FlatList, ActivityIndicator, RefreshControl, Alert } from 'react-native';
+import { XMLParser } from 'fast-xml-parser';
 
-const RSS_FEED_URL = 'https://lorem-rss.herokuapp.com/feed?unit=second&interval=5&length=40'; // Replace with your RSS feed URL
+const RSS_FEED_URL = 'https://lorem-rss.herokuapp.com/feed?unit=second&interval=5&length=40';
 
 function parseRSS(xml) {
-  // Simple RSS parser: adapt as needed for your feed
-  const parser = new DOMParser();
-  const xmlDoc = parser.parseFromString(xml, 'text/xml');
-  const items = Array.from(xmlDoc.getElementsByTagName('item')).map(item => ({
-    title: item.getElementsByTagName('title')[0].textContent,
-    link: item.getElementsByTagName('link')[0].textContent,
-    description: item.getElementsByTagName('description')[0].textContent,
-    pubDate: item.getElementsByTagName('pubDate')[0].textContent,
-  }));
-  return items;
+  const parser = new XMLParser();
+  const json = parser.parse(xml);
+  // Adjust path based on actual RSS structure
+  const items = json.rss?.channel?.item || [];
+  // Ensure array
+  return Array.isArray(items) ? items : [items];
 }
 
 export default function LiveFeedScreen() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
 
-  const fetchFeed = async () => {
+  const fetchFeed = useCallback(async () => {
     try {
+      if (!refreshing) setLoading(true);
       const response = await fetch(RSS_FEED_URL);
       const text = await response.text();
       const items = parseRSS(text);
       setData(items);
     } catch (error) {
       setData([]);
+      Alert.alert('Error', 'Failed to load feed.');
     } finally {
       setLoading(false);
+      setRefreshing(false);
     }
-  };
+  }, [refreshing]);
 
   useEffect(() => {
     fetchFeed();
-    const interval = setInterval(fetchFeed, 5000); // Refresh every 5 seconds
+    const interval = setInterval(fetchFeed, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [fetchFeed]);
 
-  if (loading) return <ActivityIndicator size="large" style={{ flex: 1 }} />;
+  if (loading && !refreshing) return <ActivityIndicator size="large" style={{ flex: 1 }} />;
 
   return (
     <FlatList
@@ -53,7 +54,13 @@ export default function LiveFeedScreen() {
         </View>
       )}
       refreshControl={
-        <RefreshControl refreshing={loading} onRefresh={fetchFeed} />
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={() => {
+            setRefreshing(true);
+            fetchFeed();
+          }}
+        />
       }
     />
   );
