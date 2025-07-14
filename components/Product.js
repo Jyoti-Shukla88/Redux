@@ -5,22 +5,24 @@ import { useDispatch, useSelector } from 'react-redux';
 const Product = (props) => {
     const item = props.item;
     const dispatch = useDispatch();
-    const cartItems = useSelector((state) => state.reducer);
+    const cartItems = useSelector((state) => state.reducer|| []);
     const [isAdded, setIsAdded] = useState(false)
     const handleAddToCart = () => {
-        dispatch(addToCart(item))
+        console.log('Adding:', item);
+        dispatch(addToCart(item));
     }
 
     const handleRemoveFromCart = () => {
-        dispatch(removeFromCart(item.name))
+        console.log('Removing:',item.name);
+        dispatch(removeFromCart(item.name));
     }
-    useEffect(() => {
-        let result = cartItems.filter((element) => 
-            element.name === item.name
+   useEffect(() => {
+        let result = Array.isArray(cartItems)
+            ? cartItems.filter((element) => element.name === item.name)
+            : [];
+        setIsAdded(result.length > 0);
+    }, [cartItems, item.name]);
 
-        );
-       setIsAdded(result.length > 0);
-    }, [cartItems , item.name])
     return (
         <View style={{ alignItems: 'center', borderBottomColor: 'orange', borderBottomWidth: 2, padding: 40 }}>
             <Text style={{ fontSize: 24 }}> {item.name}</Text>

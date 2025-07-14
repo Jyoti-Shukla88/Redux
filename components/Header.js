@@ -4,20 +4,21 @@ import { useSelector } from 'react-redux';
 
 const Header = () => {
    
-    const cartData = useSelector((state)=>state.reducer)
-    const [cartItems, setCartItems] =useState(0)
-
-    useEffect(()=>{
-        setCartItems(cartData.length)
-    },[cartData])
-  return (
-    <View style={styles.container} >
-      <Text style={{fontSize:20,textAlign:'right',padding:20,backgroundColor:'orange',text:'blue'}}> {cartItems}</Text>
-    </View>
-      
-    
-  )
-}
+    const cartData = useSelector((state)=>state.reducer || []);
+      return (
+        <View style={styles.container}>
+            <Text style={{
+                fontSize: 20,
+                textAlign: 'right',
+                padding: 20,
+                backgroundColor: 'orange',
+                color: 'blue'
+            }}>
+                {Array.isArray(cartData) ? cartData.length : 0}
+            </Text>
+        </View>
+    );
+};
 
 export default Header;
 

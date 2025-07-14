@@ -1,53 +1,37 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { View, Text, FlatList, ActivityIndicator, RefreshControl, Alert } from 'react-native';
-import { XMLParser } from 'fast-xml-parser';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch, useSelector } from 'react-redux';
+// If liveFeedActions.js is in a redux folder one level up:
+import { fetchFeedRequest } from '../redux/liveFeedActions';
 
-const RSS_FEED_URL = 'https://lorem-rss.herokuapp.com/feed?unit=second&interval=5&length=40';
-
-function parseRSS(xml) {
-  const parser = new XMLParser();
-  const json = parser.parse(xml);
-  // Adjust path based on actual RSS structure
-  const items = json.rss?.channel?.item || [];
-  // Ensure array
-  return Array.isArray(items) ? items : [items];
-}
 
 export default function LiveFeedScreen() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
+  const dispatch = useDispatch();
+  const { data=[], loading, error } = useSelector(state => state.liveFeed);
 
-  const fetchFeed = useCallback(async () => {
-    try {
-      if (!refreshing) setLoading(true);
-      const response = await fetch(RSS_FEED_URL);
-      const text = await response.text();
-      const items = parseRSS(text);
-       await AsyncStorage.setItem('liveFeed', JSON.stringify(items));
-      setData(items);
-    } catch (error) {
-      setData([]);
-      Alert.alert('Error', 'Failed to load feed.');
-    } finally {
-      setLoading(false);
-      setRefreshing(false);
-    }
-  }, [refreshing]);
+  const intervalRef = useRef();
 
   useEffect(() => {
-    fetchFeed();
-    const interval = setInterval(fetchFeed, 5000);
-    return () => clearInterval(interval);
-  }, [fetchFeed]);
+    dispatch(fetchFeedRequest());
+    intervalRef.current = setInterval(() => {
+      dispatch(fetchFeedRequest());
+    }, 5000);
+    return () => clearInterval(intervalRef.current);
+  }, [dispatch]);
 
-  if (loading && !refreshing) return <ActivityIndicator size="large" style={{ flex: 1 }} />;
+  useEffect(() => {
+    if (error) Alert.alert('Error', error);
+  }, [error]);
+  
+  const filteredData = data;
+
+  if (loading && (!Array.isArray(data) || data.length === 0)) return <ActivityIndicator size="large" style={{ flex: 1 }} />;
+
 
   return (
     <FlatList
-      data={data}
-      keyExtractor={item => item.link}
+      data={filteredData}
+      keyExtractor={item => item.link || item.id || Math.random().toString()}
       renderItem={({ item }) => (
         <View style={{ padding: 16, borderBottomWidth: 1, borderColor: '#ccc' }}>
           <Text style={{ fontWeight: 'bold' }}>{item.title}</Text>
@@ -57,11 +41,8 @@ export default function LiveFeedScreen() {
       )}
       refreshControl={
         <RefreshControl
-          refreshing={refreshing}
-          onRefresh={() => {
-            setRefreshing(true);
-            fetchFeed();
-          }}
+          refreshing={loading}
+          onRefresh={() => dispatch(fetchFeedRequest())}
         />
       }
     />
