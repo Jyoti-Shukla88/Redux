@@ -1,5 +1,5 @@
 
-import { StyleSheet, View, Text, Image, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet} from 'react-native';
 import React from 'react';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
@@ -9,17 +9,21 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import LiveFeedScreen from './components/screens/LiveFeedScreen';
 import CartScreen from './components/screens/CartScreen';
 
-const Drawer = createDrawerNavigator();
-const MyDrawer = () => (
+type DrawerParamList = {
+  Cart: undefined;
+  'Live Feed' : undefined;
+}
+
+const Drawer = createDrawerNavigator<DrawerParamList>();
+const MyDrawer : React.FC = () => (
   <NavigationContainer>
     <Drawer.Navigator initialRouteName="Cart">
       <Drawer.Screen name="Cart" component={CartScreen} />
       <Drawer.Screen name="Live Feed" component={LiveFeedScreen} />
     </Drawer.Navigator>
   </NavigationContainer>
-)
-
-export default function MyApp () {
+);
+ const MyApp : React.FC = () => {
   return(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
@@ -27,9 +31,8 @@ export default function MyApp () {
     </PersistGate>
   </Provider>
   );
-}
-
-
+ };
+export default MyApp;
 
 const styles = StyleSheet.create({
   container: {
