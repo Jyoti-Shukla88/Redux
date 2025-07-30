@@ -93,17 +93,19 @@ export default function FilterSearchToggle() {
 
         {isSearchActive && (
           <TouchableOpacity
-              style={styles.filterPill}
-              onPress={toggleSearchFilter}
-              activeOpacity={0.7}
-            >
+            style={styles.filterPill}
+            onPress={toggleSearchFilter}
+            activeOpacity={0.7}
+          >
             <Text style={styles.filterPillText}>
               {alphabetSegments[selectedSegment].label}
             </Text>
-            </TouchableOpacity>
+          </TouchableOpacity>
         )}
 
-        <Animated.View style={[styles.expandingSearchContainer, animatedButtonStyle]}>
+        <Animated.View
+          style={[styles.expandingSearchContainer, animatedButtonStyle]}
+        >
           <TouchableOpacity
             onPress={toggleSearchFilter}
             style={styles.searchButton}
@@ -132,7 +134,6 @@ export default function FilterSearchToggle() {
                     <Text style={styles.clearIcon}>✕</Text>
                   </TouchableOpacity>
                 )}
-                
               </View>
             </Animated.View>
           )}
@@ -183,7 +184,7 @@ const styles = StyleSheet.create({
   },
   filterPill: {
     backgroundColor: '#fff',
-    borderRadius:40,
+    borderRadius: 40,
     paddingHorizontal: 0,
     paddingVertical: 7,
     marginRight: 6,
@@ -217,13 +218,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     borderRadius: 20,
-    //paddingHorizontal: 8,
     marginLeft: 3,
   },
   searchIcon: {
     fontSize: 22,
     color: '#007AFF',
-    //marginTop: 0,
     marginRight: 8,
   },
   searchBar: {

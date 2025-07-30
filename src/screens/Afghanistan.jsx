@@ -31,7 +31,8 @@ const Afghanistan = () => {
     const layoutHeight = event.layoutMeasurement.height;
     const paddingToBottom = 20;
 
-    const isScrolledToBottom = offsetY + layoutHeight >= contentHeight - paddingToBottom;
+    const isScrolledToBottom =
+      offsetY + layoutHeight >= contentHeight - paddingToBottom;
 
     if (isScrolledToBottom) {
       progress.value = withTiming(1, { duration: 500 });
@@ -42,12 +43,10 @@ const Afghanistan = () => {
 
   // Animate only horizontal translation from bottom right to bottom center
   const animatedButtonStyle = useAnimatedStyle(() => {
-    // Button initial position is absolute right: 20
-    // We translateX leftwards by this distance:
     const translateX = interpolate(
       progress.value,
       [0, 1],
-      [0, -((width / 2) - (BUTTON_WIDTH / 2) +HORIZONTAL_MARGIN)]
+      [0, -(width / 2 - BUTTON_WIDTH / 2 + HORIZONTAL_MARGIN)],
     );
 
     return {
@@ -56,7 +55,7 @@ const Afghanistan = () => {
   });
 
   return (
-    <View style={{ flex: 1 , position:'relative'}}>
+    <View style={{ flex: 1, position: 'relative' }}>
       <Animated.ScrollView
         onScroll={scrollHandler}
         scrollEventThrottle={16}
@@ -64,7 +63,8 @@ const Afghanistan = () => {
       >
         <Text style={{ fontSize: 40, marginBottom: 800 }}>Afghanistan</Text>
         <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Text>
       </Animated.ScrollView>
 
@@ -74,7 +74,7 @@ const Afghanistan = () => {
           {
             position: 'absolute',
             bottom: BUTTON_BOTTOM_OFFSET, // fixed bottom
-            right: -(BUTTON_WIDTH/2),    // fixed right start position
+            right: -(BUTTON_WIDTH / 2), // fixed right start position
             left: undefined,
           },
           animatedButtonStyle,
@@ -101,7 +101,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
-    
   },
   exploreText: {
     color: 'white',
