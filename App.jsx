@@ -5,11 +5,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import RefferalCode from './src/screens/RefferalCode';
 import FAQs from './src/screens/FAQs';
 import OurHandbook from './src/screens/OurHandbook';
-import Community from './src/screens/Community';
+//import Community from './src/screens/Community';
 import Help from './src/screens/Help';
 import Settings from './src/screens/Settings';
 import PersonalData from './src/screens/PersonalData';
 import Courses from './src/screens/Courses';
+import CountryProfiles from './src/screens/ CountryProfiles';
+import Afghanistan from './src/screens/Afghanistan';
+import 'react-native-gesture-handler';
 
 
 
@@ -26,9 +29,9 @@ export default function App() {
         <Stack.Screen name="Refferal Code" component={RefferalCode} />
         <Stack.Screen name="FAQs" component={FAQs} />
         <Stack.Screen name="Our Handbook" component={OurHandbook} />
-        <Stack.Screen name="Community" component={Community} />
+        <Stack.Screen name="Country Profiles" component={CountryProfiles} />
         <Stack.Screen name="Help" component={Help} />
-        
+        <Stack.Screen name="Afghanistan" component={Afghanistan} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -70,8 +73,8 @@ function ProfileScreen({ navigation }){
        <TouchableOpacity style={styles.menuItem} onPress = {()=> navigation.navigate("Our Handbook")}>
         <MenuItem emoji="📘" label="Our Handbook" />
       </TouchableOpacity> 
-       <TouchableOpacity style={styles.menuItem} onPress = {()=> navigation.navigate("Community")}>
-        <MenuItem emoji="👥" label="Community" />
+       <TouchableOpacity style={styles.menuItem} onPress = {()=> navigation.navigate("Country Profiles")}>
+        <MenuItem emoji="👥" label="Country Profiles" />
       </TouchableOpacity> 
         
       </View>
