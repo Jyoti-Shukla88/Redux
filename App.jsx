@@ -1,4 +1,4 @@
-import { StyleSheet,SafeAreaView,Text, View,TouchableOpacity, Image,ScrollView,} from 'react-native'
+import { StyleSheet,SafeAreaView,Text, View,TouchableOpacity, Image,ScrollView, Dimensions, Platform, StatusBar,} from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -15,7 +15,9 @@ import Afghanistan from './src/screens/Afghanistan';
 import 'react-native-gesture-handler';
 
 
-
+const { width, height } = Dimensions.get('window');
+const AVATAR_SIZE = width * 0.18; 
+const AVATAR_RADIUS = AVATAR_SIZE / 2.1;
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -40,7 +42,7 @@ export default function App() {
 
 function ProfileScreen({ navigation }){
   return (
-    <ScrollView style={styles.Container}>
+    <ScrollView style={styles.Container} contentContainerStyle={{paddingBottom: 32}}>
       <View style = {styles.profileHeader}>
           <Image source ={{uri:'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?cs=srgb&dl=pexels-justin-shaifer-501272-1222271.jpg&fm=jpg'}}
              style= {styles.avatar}/>
@@ -105,6 +107,11 @@ function MenuItem({ emoji, label }) {
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#fff",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
   Container: {
     flex: 2,
     padding:20,

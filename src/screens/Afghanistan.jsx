@@ -14,7 +14,7 @@ import Animated, {
   interpolate,
 } from 'react-native-reanimated';
 
-const { width } = Dimensions.get('window');
+const { width,height } = Dimensions.get('window');
 
 const BUTTON_WIDTH = 150;
 const BUTTON_HEIGHT = 50;
@@ -59,10 +59,10 @@ const Afghanistan = () => {
       <Animated.ScrollView
         onScroll={scrollHandler}
         scrollEventThrottle={16}
-        contentContainerStyle={{ padding: 20 }}
+        contentContainerStyle={{ padding: 40}}
       >
-        <Text style={{ fontSize: 40, marginBottom: 800 }}>Afghanistan</Text>
-        <Text>
+        <Text style={{ fontSize: width * 0.1, marginBottom:height *1}}>Afghanistan</Text>
+        <Text style={{ fontSize: 16, lineHeight: 24 }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Text>
@@ -73,9 +73,9 @@ const Afghanistan = () => {
           styles.exploreButton,
           {
             position: 'absolute',
-            bottom: BUTTON_BOTTOM_OFFSET, // fixed bottom
+            bottom: (BUTTON_BOTTOM_OFFSET*1.5), // fixed bottom
             right: -(BUTTON_WIDTH / 2), // fixed right start position
-            left: undefined,
+            
           },
           animatedButtonStyle,
         ]}

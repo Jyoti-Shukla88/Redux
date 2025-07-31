@@ -7,23 +7,19 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
+  Dimensions,
+  Platform,
 } from 'react-native';
 
+const { width, height } = Dimensions.get('window');
+
 const countries = [
-  {
-    id: '1',
-    name: 'Afghanistan',
-    flag: 'https://flagsapi.com/AF/shiny/64.png',
-  },
+  { id: '1', name: 'Afghanistan', flag: 'https://flagsapi.com/AF/shiny/64.png' },
   { id: '2', name: 'Albania', flag: 'https://flagsapi.com/AL/shiny/64.png' },
   { id: '3', name: 'Algeria', flag: 'https://flagsapi.com/DZ/shiny/64.png' },
   { id: '4', name: 'Andorra', flag: 'https://flagsapi.com/AD/shiny/64.png' },
   { id: '5', name: 'Angola', flag: 'https://flagsapi.com/AO/shiny/64.png' },
-  {
-    id: '6',
-    name: 'Antigua and Barbuda',
-    flag: 'https://flagsapi.com/AG/shiny/64.png',
-  },
+  { id: '6', name: 'Antigua and Barbuda', flag: 'https://flagsapi.com/AG/shiny/64.png' },
   { id: '7', name: 'Argentina', flag: 'https://flagsapi.com/AR/shiny/64.png' },
   { id: '8', name: 'Armenia', flag: 'https://flagsapi.com/AM/shiny/64.png' },
 ];
@@ -35,7 +31,11 @@ export default function CountryProfiles({ navigation }) {
 
   const onLetterPress = letter => {
     setSelectedLetter(letter);
-    console.log('Selected letter:', letter);
+    // Optionally filter countries starting with selected letter
+    const newFiltered = countries.filter(country =>
+      country.name.toUpperCase().startsWith(letter)
+    );
+    setFilteredCountries(newFiltered);
   };
 
   const searchFilter = text => {
@@ -87,6 +87,7 @@ export default function CountryProfiles({ navigation }) {
         data={filteredCountries}
         keyExtractor={item => item.id}
         renderItem={renderItem}
+        contentContainerStyle={{ paddingBottom: height * 0.07 }} // space for alphabet bar
       />
 
       {/* Alphabet Bar */}
@@ -118,59 +119,36 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  navBar: {
-    height: 56,
-    backgroundColor: '#012a5b',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 10,
-  },
-  backButton: {
-    width: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  backArrow: {
-    color: 'white',
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  title: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: '600',
-  },
   searchBar: {
-    height: 40,
-    margin: 10,
+    height: height * 0.05, // ~5% of screen height, adaptive height
+    margin: width * 0.03,
     borderColor: '#ccc',
     borderWidth: 1,
     borderRadius: 10,
-    paddingHorizontal: 15,
-    fontSize: 14,
+    paddingHorizontal: width * 0.04,
+    fontSize: width * 0.04,
   },
   item: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 35,
-    paddingHorizontal: 15,
+    paddingVertical: height * 0.025, // proportional vertical padding
+    paddingHorizontal: width * 0.04,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
   },
   flag: {
-    width: 32,
-    height: 24,
+    width: width * 0.08, // adaptive width
+    height: width * 0.06, // adaptive height
     resizeMode: 'contain',
-    marginRight: 15,
+    marginRight: width * 0.035,
   },
   name: {
     flex: 1,
-    fontSize: 16,
+    fontSize: width * 0.045,
     color: '#333',
   },
   arrow: {
-    fontSize: 22,
+    fontSize: width * 0.07,
     color: '#666',
   },
   alphabetBar: {
@@ -178,26 +156,25 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    height: 40,
+    height: height * 0.06,
     borderTopWidth: 1,
     borderTopColor: '#ddd',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#fff',
-    paddingHorizontal: 10,
-    elevation: 3,
+    paddingHorizontal: width * 0.025,
+    elevation: Platform.OS === 'android' ? 3 : 0,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.1,
+    shadowOpacity: Platform.OS === 'ios' ? 0.1 : 0,
     shadowRadius: 4,
   },
-
   letterBtn: {
-    paddingHorizontal: 5,
+    paddingHorizontal: width * 0.01,
   },
   letter: {
-    fontSize: 16,
+    fontSize: width * 0.04,
     color: '#007AFF',
   },
   letterSelected: {
